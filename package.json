@@ -1,17 +1,26 @@
 {
-  "name": "ejs-challenge",
+  "name": "blog-website",
   "version": "1.0.0",
-  "description": "",
+  "description": "This is a basic blog website created using ejs",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "apkharsh",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.18.3",
     "ejs": "^2.6.1",
     "express": "^4.16.3",
     "lodash": "^4.17.11"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/apkharsh/blog-website.git"
+  },
+  "bugs": {
+    "url": "https://github.com/apkharsh/blog-website/issues"
+  },
+  "homepage": "https://github.com/apkharsh/blog-website#readme"
 }
