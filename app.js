@@ -24,19 +24,28 @@ app.get("/", function(req, res) {
   res.render("home",{homeContent: homeStartingContent, about: aboutContent})
 });
 
+app.get("/about", function(req, res) {
+  res.render("about",{about: aboutContent})
+});
+
+app.get("/contact", function(req, res) {
+  res.render("contact",{contact: contactContent})
+});
+
+app.get("/compose", function(req, res) {
+  res.render("compose");
+});
 
 
-
-
-
-
-
-
-
-
-
-
-
+app.post('/compose', function(req, res) {
+  const post = req.body.title;
+  const body = req.body.body;
+  console.log(post);
+  console.log(body);
+  res.redirect('/');
+});
+  // const postTitle = req.body.postTitle;
+  // console.log();
 // app.listen(3000, function() {
 //   console.log("Server started on port 3000");
 // });
