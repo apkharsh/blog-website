@@ -1,7 +1,10 @@
 <%-include("partials/header")-%> 
-    <h1>Hello amigos, I am harsh.</h1>
-    <p>
-        <%=homeContent%>
-    </p>
+    <!-- <h1>Hello amigos, I am harsh.</h1> -->
+
+    <% for(var i=0; i<postData.length; i++){ %>
+        <h3> <%=postData[i].title%> </h3>
+        <p> <%=postData[i].body%> <p>
+    <% } %>
+
 
 <%-include("partials/footer")-%> 

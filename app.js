@@ -16,12 +16,18 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
 
+var posts = [];
+
 app.listen(3000, function() {
   console.log("Server started on port 3000");
 });
 
 app.get("/", function(req, res) {
-  res.render("home",{homeContent: homeStartingContent, about: aboutContent})
+  // res.render("home",{homeContent: homeStartingContent, about: aboutContent})
+  // res.render("home", {content: posts})
+  // display contents of the array posts in the home page
+  res.render("home", {postData: posts})
+
 });
 
 app.get("/about", function(req, res) {
@@ -40,8 +46,16 @@ app.get("/compose", function(req, res) {
 app.post('/compose', function(req, res) {
   const post = req.body.title;
   const body = req.body.body;
-  console.log(post);
-  console.log(body);
+  // console.log(post);
+  // console.log(body);
+  const postData = {
+    title: post,
+    body: body
+  };
+  
+  posts.push(postData);
+  console.log(posts);
+  
   res.redirect('/');
 });
   // const postTitle = req.body.postTitle;
