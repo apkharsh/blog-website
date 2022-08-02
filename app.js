@@ -15,7 +15,6 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
-
 var posts = [];
 
 app.listen(3000, function() {
@@ -25,9 +24,8 @@ app.listen(3000, function() {
 app.get("/", function(req, res) {
   // res.render("home",{homeContent: homeStartingContent, about: aboutContent})
   // res.render("home", {content: posts})
-  // display contents of the array posts in the home page
+  // display contents of the array posts in the home page.
   res.render("home", {postData: posts})
-
 });
 
 app.get("/about", function(req, res) {
@@ -42,24 +40,26 @@ app.get("/compose", function(req, res) {
   res.render("compose");
 });
 
+app.get("/posts/:post", function(req, res) {
+  var requestedTitle = req.params.post;
+  posts.forEach(function(post) {
+    if (post.title === requestedTitle) {
+      res.render("home", {postData: post.title, postData: post.content});
+      // console.log("Match foun");
+    }
+    else res.render("home", {postData: posts});
+    // else console.log("Not Found");
+  })
+});
 
 app.post('/compose', function(req, res) {
   const post = req.body.title;
   const body = req.body.body;
-  // console.log(post);
-  // console.log(body);
   const postData = {
     title: post,
     body: body
   };
   
   posts.push(postData);
-  console.log(posts);
-  
   res.redirect('/');
 });
-  // const postTitle = req.body.postTitle;
-  // console.log();
-// app.listen(3000, function() {
-//   console.log("Server started on port 3000");
-// });
